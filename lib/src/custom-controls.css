@@ -1,0 +1,100 @@
+/*!
+ * custom-controls.css
+ * jQuery + Bootstrap カスタムコントロールライブラリのスタイル
+ */
+
+.cc-wrapper {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+/* ===== Custom Select ===== */
+.cc-select {
+  position: relative;
+}
+.cc-select .cc-select-display {
+  cursor: pointer;
+  user-select: none;
+}
+.cc-select .cc-select-display.is-placeholder {
+  color: var(--bs-secondary-color, #6c757d);
+}
+.cc-select .cc-select-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1050;
+  max-height: 240px;
+  overflow-y: auto;
+  background-color: var(--bs-body-bg, #fff);
+  border: 1px solid var(--bs-border-color, #ced4da);
+  border-radius: 0.375rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  margin-top: 0.125rem;
+  display: none;
+}
+.cc-select.is-open .cc-select-menu {
+  display: block;
+}
+.cc-select .cc-select-option {
+  padding: 0.375rem 0.75rem;
+  cursor: pointer;
+}
+.cc-select .cc-select-option:hover,
+.cc-select .cc-select-option.is-active {
+  background-color: var(--bs-primary-bg-subtle, #e7f1ff);
+}
+.cc-select .cc-select-option.is-selected {
+  background-color: var(--bs-primary, #0d6efd);
+  color: #fff;
+}
+
+/* ===== Custom Radio ===== */
+.cc-radio .form-check {
+  margin-right: 0.75rem;
+}
+.cc-radio .form-check-input {
+  cursor: pointer;
+}
+
+/* ===== Custom Autocomplete ===== */
+.cc-autocomplete {
+  position: relative;
+}
+.cc-autocomplete .cc-ac-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1050;
+  max-height: 240px;
+  overflow-y: auto;
+  background-color: var(--bs-body-bg, #fff);
+  border: 1px solid var(--bs-border-color, #ced4da);
+  border-radius: 0.375rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  margin-top: 0.125rem;
+  display: none;
+}
+.cc-autocomplete.is-open .cc-ac-menu {
+  display: block;
+}
+.cc-autocomplete .cc-ac-item {
+  padding: 0.375rem 0.75rem;
+  cursor: pointer;
+}
+.cc-autocomplete .cc-ac-item:hover,
+.cc-autocomplete .cc-ac-item.is-active {
+  background-color: var(--bs-primary-bg-subtle, #e7f1ff);
+}
+
+/* ===== Validation ===== */
+.cc-wrapper .invalid-feedback {
+  display: none;
+}
+.cc-wrapper.is-invalid .invalid-feedback,
+.cc-wrapper .is-invalid ~ .invalid-feedback {
+  display: block;
+}

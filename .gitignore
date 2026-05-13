@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Build artifacts (lib/dist は配布物としてコミットしたいので除外しない)
+# 一時的に再生成されるソースマップ等が増えた場合のみ追記する
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+
+# Env / local
+.env
+.env.*
+!.env.example

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>custom-controls demo</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="dist/custom-controls.min.css">
+  <style>
+    body { padding: 2rem; max-width: 720px; margin: 0 auto; }
+    .demo-section { margin-bottom: 1.5rem; }
+    pre.result { background: #f6f8fa; padding: .5rem; border-radius: .375rem; }
+  </style>
+</head>
+<body>
+  <h1 class="h3 mb-4">custom-controls demo</h1>
+
+  <form id="demo-form" novalidate>
+    <div class="demo-section">
+      <custom-select id="c-pref"
+        label="都道府県"
+        placeholder="選択してください"
+        options='[{"value":"13","label":"東京都"},{"value":"27","label":"大阪府"},{"value":"01","label":"北海道"}]'
+        required></custom-select>
+    </div>
+
+    <div class="demo-section">
+      <custom-input id="c-email"
+        label="メールアドレス"
+        type="email"
+        placeholder="user@example.com"
+        pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+        minlength="5"
+        maxlength="100"
+        required></custom-input>
+    </div>
+
+    <div class="demo-section">
+      <custom-input id="c-code"
+        label="社員コード（英数字 6〜10 文字）"
+        charset="alphanum"
+        minlength="6"
+        maxlength="10"
+        required></custom-input>
+    </div>
+
+    <div class="demo-section">
+      <custom-radio id="c-gender"
+        label="性別（選択解除可）"
+        options='["男性","女性","その他"]'
+        inline></custom-radio>
+    </div>
+
+    <div class="demo-section">
+      <custom-autocomplete id="c-lang"
+        label="プログラミング言語"
+        placeholder="入力してください"
+        suggestions='["JavaScript","TypeScript","Java","Python","C#","C++","Go","Rust","Ruby","Kotlin","Swift","PHP"]'
+        min-chars="1"
+        max-items="6"></custom-autocomplete>
+    </div>
+
+    <button type="submit" class="btn btn-primary">送信</button>
+    <button type="button" id="btn-set" class="btn btn-outline-secondary">値を一括セット</button>
+  </form>
+
+  <h2 class="h5 mt-4">現在値</h2>
+  <pre class="result" id="out">{}</pre>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="dist/custom-controls.min.js"></script>
+  <script>
+    function dump() {
+      var data = {
+        pref:   $('#c-pref').customSelect('val'),
+        email:  $('#c-email').customInput('val'),
+        code:   $('#c-code').customInput('val'),
+        gender: $('#c-gender').customRadio('val'),
+        lang:   $('#c-lang').customAutocomplete('val')
+      };
+      $('#out').text(JSON.stringify(data, null, 2));
+    }
+
+    $(document).on('change.cc', 'custom-select,custom-input,custom-radio,custom-autocomplete', dump);
+    dump();
+
+    $('#demo-form').on('submit', function (e) {
+      e.preventDefault();
+      var ok = true;
+      ok = $('#c-pref').customSelect('validate')      && ok;
+      ok = $('#c-email').customInput('validate')      && ok;
+      ok = $('#c-code').customInput('validate')       && ok;
+      ok = $('#c-gender').customRadio('validate')     && ok;
+      ok = $('#c-lang').customAutocomplete('validate') && ok;
+      if (ok) alert('OK\n' + $('#out').text());
+    });
+
+    $('#btn-set').on('click', function () {
+      $('#c-pref').customSelect('val', '27');
+      $('#c-email').customInput('val', 'test@example.com');
+      $('#c-code').customInput('val', 'ABC12345');
+      $('#c-gender').customRadio('val', '女性');
+      $('#c-lang').customAutocomplete('val', 'TypeScript');
+      dump();
+    });
+  </script>
+</body>
+</html>
