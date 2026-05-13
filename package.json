@@ -4,7 +4,7 @@
   "private": true,
   "description": "custom-controls ライブラリ + ユーザー管理アプリ (モノレポ)",
   "scripts": {
-    "build": "npm --prefix lib run build",
+    "build": "npm --prefix lib run build && node -e \"const fs=require('fs');fs.mkdirSync('src/resources',{recursive:true});fs.copyFileSync('lib/dist/custom-controls.min.js','src/resources/custom-controls.min.js');fs.copyFileSync('lib/dist/custom-controls.min.css','src/resources/custom-controls.min.css')\"",
     "watch": "npm --prefix lib run watch",
     "serve": "npx --yes http-server . -c-1 -o /src/index.html",
     "start": "npm run build && npm run serve"
