@@ -1,0 +1,40 @@
+{
+  "name": "custom-controls",
+  "version": "1.0.0",
+  "description": "jQuery + Bootstrap 5 ベースのカスタムコントロールライブラリ (select / input / radio / autocomplete)。",
+  "main": "dist/custom-controls.min.js",
+  "style": "dist/custom-controls.min.css",
+  "unpkg": "dist/custom-controls.min.js",
+  "jsdelivr": "dist/custom-controls.min.js",
+  "files": [
+    "dist/",
+    "src/",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "node scripts/build.js",
+    "watch": "node scripts/build.js --watch",
+    "prepublishOnly": "npm run build",
+    "demo": "npm run build && npx --yes http-server . -o /demo.html",
+    "test": "echo \"no tests yet\" && exit 0"
+  },
+  "keywords": [
+    "jquery",
+    "bootstrap",
+    "custom-controls",
+    "select",
+    "autocomplete",
+    "radio",
+    "input",
+    "validation"
+  ],
+  "peerDependencies": {
+    "bootstrap": "^5.0.0",
+    "jquery": "^3.0.0"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.28.0"
+  }
+}

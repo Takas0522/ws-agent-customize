@@ -1,0 +1,33 @@
+body {
+  min-height: 100vh;
+}
+
+.card {
+  border: none;
+}
+
+.card-header {
+  background-color: #fff;
+  border-bottom: 1px solid var(--bs-border-color);
+  font-size: 1rem;
+}
+
+#feedback .toast {
+  min-width: 260px;
+}
+
+table thead th {
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+td.actions {
+  white-space: nowrap;
+}
+
+.status-badge.active {
+  background-color: var(--bs-success);
+}
+.status-badge.inactive {
+  background-color: var(--bs-secondary);
+}
