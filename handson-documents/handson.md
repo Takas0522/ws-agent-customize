@@ -61,10 +61,25 @@ VS Code の設定で「workbench.browser.enableChatTools」を確認しチェッ
 このようにライブラリなど参照できない箇所にある情報は使用されないので個別でカスタマイズが必要になります。
 関わるドキュメントも少ないです。
 
+これは正しい実装ではないので「元に戻す」で戻しておきます。
+![alt text](image-10.png)
+※新規作成のファイルは削除してしまいます
+
 ### Tips: エージェントデバッグログ画面
 
 エージェントがどのように動いたのかやトークンの利用状況をデバッグ画面から確認できます。
 今回はそもそもコード量自体が少ないためそこまで大きな効果は得られないかもしれませんが、customize の効果を確かめるために有効です。
+
+![alt text](image-11.png)
+
+`Enable in Settings` を選択
+![alt text](image-7.png)
+
+出てきた画面で設定を有効にする。
+![alt text](image-8.png)
+
+右上…で  Agentはなくて、 Show Chat Debug View する事で左メニューバーに表示される
+![alt text](image-9.png)
 
 ![alt text](image-1.png)
 
